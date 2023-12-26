@@ -9,6 +9,12 @@ export async function getServerSideProps({ params: { slug } }) {
   const reqDetail = await fetch(process.env.NEXT_PUBLIC_APIURL + '/posts?slug=' + slug);
   const single = await reqDetail.json();
 
+  // ADDING LOGIC FOR NOT FOUND PAGE
+  if (!single.length) 
+  return {
+    notFound: true
+  }
+
   return {
     props: {
       single: single.length > 0 ? single[0] : {}
