@@ -4,7 +4,19 @@ import PostMetaTitle from '@components/PostMetaTitle';
 import PostAuthor from '@components/PostAuthor';
 import Head from 'next/head';
 
-export default function Detail() {
+// ADDING FUNCTION FETCHING
+export async function getServerSideProps({ params: { slug } }) {
+  const reqDetail = await fetch(process.env.NEXT_PUBLIC_APIURL + '/posts?slug=' + slug);
+  const single = await reqDetail.json();
+
+  return {
+    props: {
+      single: single.length > 0 ? single[0] : {}
+    }
+  }
+}
+
+export default function Detail({ single }) {
   return (
     <Layout>
       <Head>
@@ -13,6 +25,7 @@ export default function Detail() {
       <Container>
         <div className="md:w-6/12 w-full mx-auto flex items-center flex-col">
           <PostMetaTitle
+            slug="aaaaaa"
             category="UI Design"
             date="July 2, 2021"
             title="Understanding color theory: the color wheel and finding complementary colors"
