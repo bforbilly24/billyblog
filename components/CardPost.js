@@ -6,7 +6,6 @@ export default function CardPost(props) {
     <article>
       <Link legacyBehavior href={props.slug}>
         <a>
-
           <img src={process.env.NEXT_PUBLIC_APIURL + props.thumbnail.formats.small.url} className="w-full rounded mb-4" />
         </a>
       </Link>

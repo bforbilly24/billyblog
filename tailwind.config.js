@@ -16,7 +16,20 @@ module.exports = {
     extend: {
       fontFamily: {
         'sans': ['Patrick Hand', 'Arial', 'sans-serif']
-      }
+      },
+      // typography: {
+      //   DEFAULT: {
+      //     css: {
+      //       color: '#fff',
+      //       maxWidth: '100%',
+      //     },
+      //   },
+      // }
+      // fontWeights: {
+      //   // Add the font weights you are using
+      //   400: 'normal',
+      //   700: 'bold',
+      // },
     },
   },
   variants: {
@@ -33,6 +46,7 @@ module.exports = {
       }
 
       addUtilities(utilities);
-    })
+    }),
+    // require('@tailwindcss/typography')
   ],
 }

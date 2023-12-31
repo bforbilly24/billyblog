@@ -10,9 +10,12 @@ export default function PostMetaTitle({ category, title, date, slug, center }) {
         <span>&bull;</span>
         <div>{date}</div>
       </div>
-      <h2 className={`text-2xl mt-4 ${center ? "text-center" : ""}`}>
-        <Link legacyBehavior href={slug}><a>{title}</a>
-        </Link>
+      <h2 className={`text-2xl mt-4 ${center ? "text-center" : ''}`}>
+        {slug ?
+          <Link legacyBehavior href={slug}><a>{title}</a></Link>
+            :
+            <>{title}</>
+        }
       </h2>
     </>
   );

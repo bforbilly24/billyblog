@@ -6,6 +6,7 @@ import Container from '@components/Container';
 import Layout from '@components/Layout';
 import mockPosts from '../utils/posts.json';
 
+// ADDING FUNCTION FETCHING
 export async function getServerSideProps() {
   const reqFeatured = await fetch(process.env.NEXT_PUBLIC_APIURL + '/posts?featured=true');
   const featured = await reqFeatured.json();
